@@ -1,0 +1,36 @@
+#include <cs50.h>
+#include <stdio.h>
+
+// Positive integer
+// Integer must be between 1 and 8 inclusive
+
+// User will indicate the height (1-8)
+
+int main(void)
+{
+
+int n;
+int i,j;
+do{
+    n = get_int("Height: ");
+}
+while (n < 1 || n > 8);
+//printf(" ok good \n");
+
+{
+for (i = 0; i < n; i++){
+    for (j = 0; j < n; j++){
+        if (i+j < n-1)
+        printf(" ");
+        else
+        printf("#");
+    }
+    printf("\n");
+}
+
+
+}
+
+
+
+}
