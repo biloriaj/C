@@ -1,0 +1,66 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+int main(int argc, string argv[])
+{
+
+ // Check there is only one command line argument
+
+ if (argc != 2){
+    printf("Usage: ./substitution key \n");
+    return 1;
+ }
+
+ // Validate the Key
+ string key = argv[1];
+ for (int a = 0; a < strlen(key); a++){
+    if (!isalpha(key[a])){
+    printf("Usage: ./substitution key \n");
+    return 1;
+    }
+   // Validate the lenght
+   if (strlen(key)!=26){
+    printf("KEY MUST CONTAIN 26 CHARACTERS\n");
+    return 1;
+   }
+
+   // Validate that each alphabet in the key is unique
+
+    for (int i = 0; i < strlen(key); i++){
+      for (int j = i + 1; j < strlen(key); j++){
+         if (toupper(key[i]) == toupper(key[j])){
+             printf("Duplicate\n");
+             return 1;
+         }
+      }
+    }
+ }
+
+  string plaintext = get_string("PlainText: ");
+
+  for (int b = 0; b < strlen(key); b++){
+      if (islower(key[b])){
+         key[b] = key[b]-32;
+      }
+         }
+
+
+ for (int c = 0; c < strlen(key); c++){
+   if (isupper(plaintext[c])){
+      int letter = plaintext[c] - 65;
+      printf("%c", key[letter]);
+   }
+   else if (islower(plaintext[c])){
+      int letter = plaintext[c] - 97;
+        printf("%c", key[letter]+32);
+         }
+         else
+          printf("%c", plaintext[c]);
+
+}
+printf("\n");
+
+}
